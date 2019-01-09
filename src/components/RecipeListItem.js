@@ -1,13 +1,21 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
+import PropTypes from 'prop-types'
 
 class RecipeListItem extends Component {
-    handleCompleteClick = completeRecipeId => {
-        const { completeRecipe } = this.props;
-        completeRecipe(completeRecipeId);
-    };
+
+    constructor(props) {
+        super(props)
+
+        this.handleCompleteClick = this.handleCompleteClick.bind(this)
+    }
+
+    handleCompleteClick(completeRecipeId) {
+        const { completeRecipe } = this.props
+        completeRecipe(completeRecipeId)
+    }
 
     render() {
-        const { recipeId, recipe } = this.props;
+        const { recipeId, recipe } = this.props
         return (
             <div key="recipeName" className="col s10 offset-s1 recipe-list-item teal">
                 <h4>
@@ -20,8 +28,14 @@ class RecipeListItem extends Component {
                     </span>
                 </h4>
             </div>
-        );
+        )
     }
 }
 
-export default RecipeListItem;
+RecipeListItem.propTypes = {
+    recipeId: PropTypes.string,
+    recipe: PropTypes.string,
+    completeRecipe: PropTypes.func.isRequired
+}
+
+export default RecipeListItem

@@ -1,25 +1,31 @@
-import React, { Component } from "react";
-import RecipeList from "./components/RecipeList";
-import * as actions from "./actions";
+import React, { Component } from "react"
+import RecipeList from "./components/RecipeList"
+import * as actions from "./actions"
+import AddRecipeButton from "./components/AddRecipeButton"
 
 class App extends Component {
     constructor(props) {
-        super(props)
+        super(props) 
 
         this.state = { 
-            data: null
+            recipes: null
         }
 
         this.handleRecipesData = this.handleRecipesData.bind(this) 
+        this.handleAddRecipeClick = this.handleAddRecipeClick.bind(this)
     }
-    componentWillMount() {
-        actions.fetchRecipes(this.handleRecipesData);
+    componentDidMount() {
+        actions.fetchRecipes(this.handleRecipesData)
     }
 
     handleRecipesData(data) {
         this.setState({
-            data: data
+            recipes: data
         })
+    }
+
+    handleAddRecipeClick() {
+
     }
 
     render() {
@@ -29,11 +35,13 @@ class App extends Component {
                     addRecipe={actions.addRecipe}
                     fetchRecipes={actions.fetchRecipes}
                     completeRecipe={actions.completeRecipe}
-                    data={this.state.data}
+                    data={this.state.recipes}
                 />
+                <AddRecipeButton onClick={this.handleAddRecipeClick} />
+
             </div>
-        );
+        )
     }
 }
 
-export default App;
+export default App

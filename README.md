@@ -1,6 +1,7 @@
 ## Tutorials Used
 
 [How to Integrate React Redux and Firebase in 3 Simple Steps](https://medium.com/quick-code/how-to-integrate-react-redux-and-firebase-in-3-simple-steps-c44804a6af38)
+
 [Adding Authentication To React Redux Firebase App](https://medium.com/quick-code/adding-authentication-to-react-redux-firebase-app-f0efcb1c519a)
 
 ## Available Scripts
