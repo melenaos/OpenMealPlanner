@@ -1,0 +1,86 @@
+.kitchen-menu {
+    top: 65px;
+}
+
+.sidenav .header {
+    cursor: initial;
+    pointer-events: none;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 48px;
+}
+
+.sidenav li > a {
+    color: #fff
+}
+
+.search-field label.active {
+    display: none
+}
+
+.kitchen-lib-content {
+    padding-left: 308px
+}
+
+.kitchen-lib-title {
+    font-size: 36px;
+    line-height: 100%;
+    margin: 10px 0;
+    border-bottom: 1px solid;
+    padding: 10px 20px;
+}
+
+@media only screen and (max-width : 992px) {
+    .kitchen-lib-content {
+        padding-left: 0;
+    }
+}
+
+
+/*
+.sidenav form {
+    position: relative;
+    height: 100%;
+    background: inherit;
+}
+
+.nav-wrapper {
+    background: inherit;
+}
+
+.my-grey {
+    background: #f7f7f7;
+}
+
+input.search-field {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.54);
+    border-radius: 2px;
+    border: 0;
+    height: 36px;
+    padding: 8px;
+    margin: 0 25px;
+    width: calc(100% - 50px);
+    background: #f7f7f7;
+    transition: background 0.2s, width .2s;
+}
+
+    input.search-field:hover {
+        background: #ebebeb;
+    }
+
+.searchbox {
+    position: relative;
+}
+
+input.search-field:focus:hover {
+    background: #f7f7f7;
+}
+
+.search-icon {
+    position: absolute;
+    top: 0;
+    padding-left: 20px;
+    color: rgba(0, 0, 0, 0.54);
+}
+*/

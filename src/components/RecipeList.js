@@ -4,7 +4,7 @@ import _ from "lodash"
 import RecipeListItem from "./RecipeListItem"
 import PropTypes from 'prop-types'
 
- 
+
 class RecipeList extends Component {
 
     render() {
@@ -26,7 +26,7 @@ class RecipeList extends Component {
 RecipeList.propTypes = {
     data: PropTypes.array,
     completeRecipe: PropTypes.func.isRequired
-} 
+}
 
 const EmptyRecipes = () => <div className="col s10 offset-s1 center-align">
     <img

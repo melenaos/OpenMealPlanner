@@ -6,7 +6,7 @@ class Login extends Component {
 
     componentDidUpdate() {
         if (this.props.user) {
-            this.context.router.history.push("/")
+            this.context.router.history.push("/user/kitchen-library/all-recipes") //TODO: change to => /
         }
     }
 
