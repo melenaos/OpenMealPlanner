@@ -24,7 +24,7 @@ class RecipeList extends Component {
 }
 
 RecipeList.propTypes = {
-    data: PropTypes.array.isRequired,
+    data: PropTypes.array,
     completeRecipe: PropTypes.func.isRequired
 } 
 

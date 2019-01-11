@@ -4,6 +4,9 @@
 
 [Adding Authentication To React Redux Firebase App](https://medium.com/quick-code/adding-authentication-to-react-redux-firebase-app-f0efcb1c519a)
 
+[Protected routes and authentication with React Router v4](https://stackoverflow.com/questions/43164554/how-to-implement-authenticated-routes-in-react-router-4)
+
+[PrivateRoutes and PropsRoutes](https://github.com/ReactTraining/react-router/issues/4105#issuecomment-289195202)
 ## Available Scripts
 
 In the project directory, you can run:
