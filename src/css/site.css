@@ -7,3 +7,6 @@
 .btn.link:hover{
     text-decoration:underline
 }
+nav .sidenav-trigger.btn.link{
+    line-height:58px
+}
