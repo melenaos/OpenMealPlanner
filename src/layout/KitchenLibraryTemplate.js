@@ -4,13 +4,12 @@ import PropTypes from 'prop-types'
 import "./KitchenLibraryTemplate.css"
 import PageTemplate from './PageTemplate'
 import KitchenLibraryMenu from './KitchenLibraryMenu'
-import { PropsRoute } from "../infrastructure/routes";
 
 
-const KitchenLibraryTemplate = ({ children, title, ...rest }) =>
-    <PageTemplate {...rest}>
-        <KitchenLibraryMenu  {...rest} />
-        <div className="kitchen-lib-content">
+const KitchenLibraryTemplate = ({ children, title, fullwidth, ...rest }) =>
+    <PageTemplate {...rest} kitchenLibrary="true">
+        <KitchenLibraryMenu  {...rest} fullwidth={fullwidth} />
+        <div className={"kitchen-lib-content " + (fullwidth ?"":"with-menu")}>
             <h1 className="kitchen-lib-title">{title}</h1>
             {children}
         </div>
@@ -21,7 +20,10 @@ KitchenLibraryTemplate.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
     ]).isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    fullwidth: PropTypes.bool
 }
+
+
 
 export default KitchenLibraryTemplate

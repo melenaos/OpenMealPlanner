@@ -3,11 +3,15 @@ import * as actions from "./actions"
 import { HashRouter, Switch, Redirect } from "react-router-dom"
 import { PrivateRoute, PropsRoute } from "./infrastructure/routes"
 
+import './css/site.css'
+
 import Login from './pages/Login'
 import Home from './pages/Home'
 import KitchenAllRecipes from "./pages/KitchenAllRecipes"
 import KitchenMyRecipes from "./pages/KitchenMyRecipes"
 import KitchenMealPlanning from "./pages/KitchenMealPlanning"
+import KitchenCreateRecipe from "./pages/KitchenCreateRecipe"
+
 
 
 class App extends Component {
@@ -64,13 +68,12 @@ class App extends Component {
                     />
                     <Redirect exact from="/user/kitchen-library" to="/user/kitchen-library/all-recipes" />
                     <PrivateRoute
+                        title="All recipes"
                         path="/user/kitchen-library/all-recipes"
                         component={KitchenAllRecipes}
                         user={this.state.user}
                         signOut={actions.signOut}
 
-                        title="All recipes"
-
                         addRecipe={actions.addRecipe}
                         fetchRecipes={actions.fetchRecipes}
                         completeRecipe={actions.completeRecipe}
@@ -78,12 +81,24 @@ class App extends Component {
                         data={this.state.recipes}
                     />
                     <PrivateRoute
+                        title="My recipes"
                         path="/user/kitchen-library/my-recipes"
                         component={KitchenMyRecipes}
                         user={this.state.user}
                         signOut={actions.signOut}
 
-                        title="My recipes"
+                        addRecipe={actions.addRecipe}
+                        fetchRecipes={actions.fetchRecipes}
+                        completeRecipe={actions.completeRecipe}
+
+                        data={this.state.recipes}
+                    />
+                    <PrivateRoute
+                        title="Meal planning"
+                        path="/user/kitchen-library/meal-planning"
+                        component={KitchenMealPlanning}
+                        user={this.state.user}
+                        signOut={actions.signOut}
 
                         addRecipe={actions.addRecipe}
                         fetchRecipes={actions.fetchRecipes}
@@ -92,12 +107,11 @@ class App extends Component {
                         data={this.state.recipes}
                     />
                     <PrivateRoute
-                        path="/user/kitchen-library/meal-planning"
-                        component={KitchenMealPlanning}
+                        title="Create recipe"
+                        path="/user/kitchen-library/create-recipe"
+                        component={KitchenCreateRecipe}
                         user={this.state.user}
                         signOut={actions.signOut}
-
-                        title="Meal planning"
 
                         addRecipe={actions.addRecipe}
                         fetchRecipes={actions.fetchRecipes}

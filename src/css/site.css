@@ -1,0 +1,9 @@
+.btn.link {
+    background: inherit;
+    transition: inherit;
+    box-shadow: inherit;
+    text-transform:inherit;
+}
+.btn.link:hover{
+    text-decoration:underline
+}

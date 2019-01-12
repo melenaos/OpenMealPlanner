@@ -18,7 +18,7 @@
     display: none
 }
 
-.kitchen-lib-content {
+.kitchen-lib-content.with-menu {
     padding-left: 308px
 }
 
@@ -31,7 +31,7 @@
 }
 
 @media only screen and (max-width : 992px) {
-    .kitchen-lib-content {
+    .kitchen-lib-content.with-menu {
         padding-left: 0;
     }
 }
