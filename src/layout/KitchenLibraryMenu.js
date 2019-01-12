@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from 'prop-types'
 import M from "materialize-css/dist/js/materialize.min.js"
 
 import { NavLink, Link } from 'react-router-dom'
@@ -7,7 +8,6 @@ const selectedMenu = {
     backgroundColor: "white",
     color: "slategray"
 }
-//<li><SearchLibrary searchValue="" onSearchChange={searchChange} /></li>
 class KitchenLibraryMenu extends Component {
    
     componentDidMount() {
@@ -26,7 +26,7 @@ class KitchenLibraryMenu extends Component {
         return (
             <ul id="kitchen-menu-sidebar" className={"sidenav kitchen-menu orange darken-3 " + (this.props.fullwidth ? "" : "sidenav-fixed")} >
 
-                <li><a className="header">Kitchen library</a></li>
+                <li><a href="#Kitchen" className="header">Kitchen library</a></li>
                 <li className="sidenav-close"><NavLink activeStyle={selectedMenu} to="/user/kitchen-library/all-recipes">All recipes</NavLink></li>
                 <li className="sidenav-close"><NavLink activeStyle={selectedMenu} to="/user/kitchen-library/my-recipes">My recipes</NavLink></li>
                 <li className="sidenav-close"><NavLink activeStyle={selectedMenu} to="/user/kitchen-library/meal-planning">Meal planning</NavLink></li>
@@ -36,6 +36,13 @@ class KitchenLibraryMenu extends Component {
             </ul>)
     }
 }
+
+KitchenLibraryMenu.propTypes = {
+    fullwidth: PropTypes.bool,
+    signOut: PropTypes.func.isRequired
+}
+
+//<li><SearchLibrary searchValue="" onSearchChange={searchChange} /></li>
 //const SearchLibrary = (searchValue, onSearchChange) =>
 //    <form action="" className="row col">
 //        <input 
@@ -45,5 +52,7 @@ class KitchenLibraryMenu extends Component {
 //            onChange={onSearchChange}
 //            autoComplete="off"/>
 //    </form>
+
+
 
 export default KitchenLibraryMenu
