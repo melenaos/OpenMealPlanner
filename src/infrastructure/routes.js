@@ -1,8 +1,9 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
+import { connect } from "react-redux"
 
 
-export const PrivateRoute = ({ component, user,  ...rest }) => {
+const _PrivateRoute = ({ component, user,  ...rest }) => {
     return (
         <Route {...rest} render={routeProps => {
             return user !== null ? (
@@ -16,6 +17,8 @@ export const PrivateRoute = ({ component, user,  ...rest }) => {
         }} />
     )
 }
+export const PrivateRoute = connect(mapStateToProps, null)(_PrivateRoute)
+
 
 export const PropsRoute = ({ component, ...rest }) => {
     return (
@@ -26,9 +29,16 @@ export const PropsRoute = ({ component, ...rest }) => {
 }
 
 
+
+
 const renderMergedProps = (component, ...rest) => {
     const finalProps = Object.assign({}, ...rest)
     return (
         React.createElement(component, finalProps)
     )
 }
+
+function mapStateToProps({ user }) {
+    return { user }
+}
+

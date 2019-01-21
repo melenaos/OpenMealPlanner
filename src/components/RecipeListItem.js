@@ -9,10 +9,6 @@ class RecipeListItem extends Component {
         this.handleCompleteClick = this.handleCompleteClick.bind(this)
     }
 
-    handleCompleteClick(completeRecipeId) {
-        const { completeRecipe } = this.props
-        completeRecipe(completeRecipeId)
-    }
 
     render() {
         const { recipeId, recipe } = this.props

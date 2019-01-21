@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import PropTypes from 'prop-types'
 import KitchenLibraryTemplate from "../layout/KitchenLibraryTemplate"
 import RecipeList from '../components/RecipeList'
@@ -10,15 +11,18 @@ class KitchenAllRecipes extends Component {
         return (
             <KitchenLibraryTemplate  {...this.props}>
                 <KitchenLibraryActionbar />
-                <RecipeList data={this.props.data} completeRecipe={this.props.completeRecipe} />
+                <RecipeList data={this.props.data}  />
             </KitchenLibraryTemplate>
         )
     }
 }
 
 KitchenAllRecipes.propTypes = {
-    data: PropTypes.array,
-    completeRecipe: PropTypes.func.isRequired
+    data: PropTypes.array
 }
 
-export default KitchenAllRecipes
+function mapStateToProps({ user }) {
+    return { user }
+}
+
+export default connect(mapStateToProps,null)(KitchenAllRecipes)

@@ -1,6 +1,9 @@
 //import "./SignIn.css"
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import PropTypes from "prop-types"
+
+import { signIn } from "../actions"
 
 class Login extends Component {
 
@@ -41,6 +44,11 @@ Login.propTypes = {
 Login.contextTypes = {
     router: PropTypes.object
 }
+function mapStateToProps({ user }) {
+    return { user }
+}
+
+export default connect(mapStateToProps, { signIn })(Login)
 
 //const LoginWithEmail = () =>
 //    <div className="z-depth-1 grey lighten-4 row" style={{ display: "inline-block", padding: "32px 48px 0px 48px", border: "1px solid #EEE" }}>
@@ -76,4 +84,3 @@ Login.contextTypes = {
 //        </form>
 //    </div>
 
-export default Login

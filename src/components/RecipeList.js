@@ -14,7 +14,7 @@ class RecipeList extends Component {
                 <div className="row">
                     {_.isEmpty(data) ? <EmptyRecipes /> :
                         _.map(data, (value, key) => {
-                            return <RecipeListItem key={key} recipeId={key} recipe={value} completeRecipe={this.props.completeRecipe} />
+                            return <RecipeListItem key={key} recipeId={key} recipe={value} />
                         })
                     }
                 </div>
@@ -25,7 +25,6 @@ class RecipeList extends Component {
 
 RecipeList.propTypes = {
     data: PropTypes.array,
-    completeRecipe: PropTypes.func.isRequired
 }
 
 const EmptyRecipes = () => <div className="col s10 offset-s1 center-align">

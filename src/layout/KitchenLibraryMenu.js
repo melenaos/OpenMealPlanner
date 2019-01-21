@@ -1,7 +1,9 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import PropTypes from 'prop-types'
 import M from "materialize-css/dist/js/materialize.min.js"
 
+import { signOut } from '../actions'
 import { NavLink, Link } from 'react-router-dom'
 
 const selectedMenu = {
@@ -42,6 +44,9 @@ KitchenLibraryMenu.propTypes = {
     signOut: PropTypes.func.isRequired
 }
 
+export default connect(null, { signOut })(KitchenLibraryMenu)
+
+
 //<li><SearchLibrary searchValue="" onSearchChange={searchChange} /></li>
 //const SearchLibrary = (searchValue, onSearchChange) =>
 //    <form action="" className="row col">
@@ -55,4 +60,3 @@ KitchenLibraryMenu.propTypes = {
 
 
 
-export default KitchenLibraryMenu

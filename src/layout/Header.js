@@ -1,16 +1,17 @@
 import React from "react"
 import PropTypes from 'prop-types'
+import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 
-const Header = ({ user, kitchenLibrary }) =>
+const Header = ({ user, kitchenLibraryOpen }) =>
     <div className="navbar-fixed">
         <nav className="white  grey-text text-darken-1" role="navigation">
             <div className="nav-wrapper">
                 <a href="#logo" className="brand-logo center">Logo</a>
                 <ul id="nav-mobile" className="left">
                     <li>{user === null ?
-                        <Link to="login" className="btn link grey-text text-darken-1">Log-in</Link> :
-                        kitchenLibrary  ?
+                        <Link to="/login" className="btn link grey-text text-darken-1">Log-in</Link> :
+                        kitchenLibraryOpen  ?
                             <button href="#" data-target="kitchen-menu-sidebar" className="btn link orange-text text-darken-4 sidenav-trigger"><i className="material-icons left">restaurant_menu</i>My kitchen</button> :
                             <Link to="/user/kitchen-library/all-recipes" className="btn link orange-text text-darken-4"><i className="material-icons left">restaurant_menu</i>My kitchen</Link>
                     }
@@ -29,6 +30,10 @@ const Header = ({ user, kitchenLibrary }) =>
 
 Header.propTypes = {
     user: PropTypes.object,
-    kitchenLibrary: PropTypes.bool
+    kitchenLibraryOpen: PropTypes.bool
 }
-export default Header
+
+function mapStateToProps({ user }) {
+    return { user }
+}
+export default connect(mapStateToProps,null)(Header)

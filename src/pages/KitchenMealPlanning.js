@@ -10,7 +10,7 @@ class KitchenMealPlanning extends Component {
         return (
             <KitchenLibraryTemplate  {...this.props}>
                 <KitchenLibraryActionbar />
-                <RecipeList data={this.props.data} completeRecipe={this.props.completeRecipe} />
+                <RecipeList data={this.props.data}  />
             </KitchenLibraryTemplate>
         )
     }
@@ -18,7 +18,6 @@ class KitchenMealPlanning extends Component {
 
 KitchenMealPlanning.propTypes = {
     data: PropTypes.array,
-    completeRecipe: PropTypes.func.isRequired
 }
 
 export default KitchenMealPlanning

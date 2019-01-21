@@ -7,7 +7,7 @@ import KitchenLibraryMenu from './KitchenLibraryMenu'
 
 
 const KitchenLibraryTemplate = ({ children, title, fullwidth, ...rest }) =>
-    <PageTemplate {...rest} kitchenLibrary={true}>
+    <PageTemplate {...rest} kitchenLibraryOpen={true}>
         <KitchenLibraryMenu  {...rest} fullwidth={fullwidth} />
         <div className={"kitchen-lib-content " + (fullwidth ? "container" : "with-menu")}>
             <h1 className="kitchen-lib-title">{title}</h1>

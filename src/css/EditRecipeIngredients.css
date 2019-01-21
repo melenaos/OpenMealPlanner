@@ -1,0 +1,17 @@
+.ingredient-item{
+    padding-right:40px;
+    position:relative;
+    margin-bottom:0
+}
+
+.remove-ingredient {
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    padding: 0;
+    width: 40px;
+}
+
+.remove-ingredient i{
+    font-size:25px
+}

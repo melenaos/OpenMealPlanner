@@ -9,6 +9,10 @@
 [PrivateRoutes and PropsRoutes](https://github.com/ReactTraining/react-router/issues/4105#issuecomment-289195202)
 
 [How to manage React State with Arrays](https://www.robinwieruch.de/react-state-array-add-update-remove/)
+
+[React Typescript](https://medium.com/@martin_hotell/react-typescript-and-defaultprops-dilemma-ca7f81c661c7)
+
+[React editable table with redux](https://codepen.io/Shamiul_Hoque/pen/OboVWQ)
 ## Available Scripts
 
 In the project directory, you can run:
