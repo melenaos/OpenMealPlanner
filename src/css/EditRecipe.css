@@ -1,0 +1,46 @@
+.recipe-item {
+    padding-right: 40px;
+    position: relative;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap:wrap
+}
+
+
+.remove-recipe-item {
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    padding: 0;
+    width: 40px;
+}
+
+    .remove-recipe-item i {
+        font-size: 25px
+    }
+
+/* element specific*/
+/*  ingredient*/
+.ingr-name {
+    flex-grow: 1;
+    padding-right: 6px
+}
+
+.ingr-qty {
+    width: 70px;
+    padding-right: 6px
+}
+
+.ingr-unit {
+    min-width: 130px;
+}
+/*  step */
+.step-title {
+    flex-grow: 1;
+}
+/* End - element specific*/
+
+sup {
+    font-size: 60%;
+    color: #388e3c
+}

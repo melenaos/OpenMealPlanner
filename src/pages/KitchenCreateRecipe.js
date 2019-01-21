@@ -1,12 +1,13 @@
 import React, { Component } from "react"
 import PropTypes from 'prop-types'
 import { connect } from "react-redux"
-import _ from "lodash"
 
 import * as actions from '../actions'
 import KitchenLibraryTemplate from "../layout/KitchenLibraryTemplate"
 import EditRecipeInformation from '../components/EditRecipeInformation'
 import EditRecipeIngredients from '../components/EditRecipeIngredients'
+import EditRecipeSteps from '../components/EditRecipeSteps'
+
 
 class KitchenCreateRecipe extends Component {
     constructor(props) {
@@ -20,7 +21,8 @@ class KitchenCreateRecipe extends Component {
                 prep_time: "",
                 cook_time: "",
                 description: "",
-                ingredients: []
+                ingredients: [],
+                steps: []
             },
 
             ingredientError: "",
@@ -29,6 +31,7 @@ class KitchenCreateRecipe extends Component {
 
         this.handleIngredientsChanged = this.handleIngredientsChanged.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleStepsChanged = this.handleStepsChanged.bind(this)
     }
 
     handleIngredientsChanged(ingredients) {
@@ -37,6 +40,16 @@ class KitchenCreateRecipe extends Component {
             recipe: {
                 ...prevState.recipe,
                 ingredients
+            }
+        }))
+    }
+
+    handleStepsChanged(steps) {
+        this.setState(prevState => ({
+            ...prevState,
+            recipe: {
+                ...prevState.recipe,
+                steps
             }
         }))
     }
@@ -59,6 +72,7 @@ class KitchenCreateRecipe extends Component {
                     <div className="col s12">
                         <EditRecipeInformation {...this.state} onInputChange={this.handleInputChange} />
                         <EditRecipeIngredients ingredients={this.state.ingredients} onIngredientsChange={this.handleIngredientsChanged} />
+                        <EditRecipeSteps steps={this.state.steps} onStepsChange={this.handleStepsChanged} />
                     </div>
                 </div>
 

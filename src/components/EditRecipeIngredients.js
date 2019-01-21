@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import _ from "lodash"
 import M from "materialize-css/dist/js/materialize.min.js"
 
-import '../css/EditRecipeIngredients.css'
+import '../css/EditRecipe.css'
 
 class EditRecipeIngredients extends Component {
     constructor(props) {
@@ -76,7 +76,10 @@ class EditRecipeIngredients extends Component {
     render() {
         return (
             <div className="row">
-                <h3>Ingredients</h3>
+                <h2 className="kitchen-lib-title">Ingredients
+                    {this.state.ingredients.length > 0 && 
+                        <sup>({this.state.ingredients.length})</sup>}
+                </h2>
                 {this.state.ingredients.length > 0 &&
                     this.state.ingredients.map(
                         (ingredient) => {
@@ -103,8 +106,8 @@ EditRecipeIngredients.propTypes = {
 
 
 const RecipeIngredientItem = ({ id, name, quantity, unit, onRemoveIngredient, onIngredientChange }) =>
-    <div className="row ingredient-item">
-        <div className="col s8">
+    <div className="recipe-item">
+        <div className="ingr-name">
             <input
                 data-id={id}
                 data-name="name"
@@ -113,7 +116,7 @@ const RecipeIngredientItem = ({ id, name, quantity, unit, onRemoveIngredient, on
                 value={name}
             />
         </div>
-        <div className="col s1">
+        <div className="ingr-qty">
             <input
                 data-id={id}
                 data-name="quantity"
@@ -122,7 +125,7 @@ const RecipeIngredientItem = ({ id, name, quantity, unit, onRemoveIngredient, on
                 value={quantity}
             />
         </div>
-        <div className="col s3">
+        <div className="ingr-unit">
             <select
                 data-id={id}
                 data-name="unit"
@@ -144,7 +147,7 @@ const RecipeIngredientItem = ({ id, name, quantity, unit, onRemoveIngredient, on
             </select>
         </div>
 
-        <button className="waves-effect waves-teal btn-flat remove-ingredient"
+        <button className="waves-effect waves-teal btn-flat remove-recipe-item"
             type="button" data-id={id}
             onClick={onRemoveIngredient}
         >
@@ -203,8 +206,8 @@ class RecipeIngredientForm extends Component {
     render() {
         return (
             <form onSubmit={this.addIngredient}>
-                <div className="row ingredient-item">
-                    <div className="input-field col s8">
+                <div className="recipe-item">
+                    <div className="input-field ingr-name">
                         <input
                             id="ingredientName" data-name="name"
                             type="text"
@@ -214,7 +217,7 @@ class RecipeIngredientForm extends Component {
                         />
                         <label htmlFor="ingredientName" className={!_.isEmpty(this.state.name) && "active"}>Name*</label>
                     </div>
-                    <div className="input-field col s1">
+                    <div className="input-field ingr-qty">
                         <input
                             id="ingredientQuantity" data-name="quantity"
                             type="text"
@@ -223,7 +226,7 @@ class RecipeIngredientForm extends Component {
                         />
                         <label htmlFor="ingredientQuantity" className={!_.isEmpty(this.state.quantity) && "active"}>Qty*</label>
                     </div>
-                    <div className="input-field col s3">
+                    <div className="input-field ingr-unit">
                         <select
                             id="ingredientUnit"
                             data-name="unit"
@@ -243,7 +246,7 @@ class RecipeIngredientForm extends Component {
                             <option value="q">Quart</option>
                             <option value="g">Gallon</option>
                         </select>
-                        <label htmlFor="ingredientUnit" className={!_.isEmpty(this.state.unit) && "active"}>Unit</label>
+                        <label>Unit</label>
                     </div>
                 </div>
                 <button className="btn waves-effect orange darken-4" name="action" type="submit">Add ingredient</button>
