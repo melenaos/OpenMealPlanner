@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import "./KitchenLibraryTemplate.css"
 import PageTemplate from './PageTemplate'
+import Footer from './Footer'
 import KitchenLibraryMenu from './KitchenLibraryMenu'
 
 
@@ -13,6 +14,10 @@ const KitchenLibraryTemplate = ({ children, title, fullwidth, ...rest }) =>
             <h1 className="kitchen-lib-title">{title}</h1>
             {children}
         </div>
+        {
+            fullwidth &&
+                <Footer />
+        }
     </PageTemplate>
 
 KitchenLibraryTemplate.propTypes = {

@@ -170,7 +170,7 @@ class RecipeStepForm extends Component {
                             value={this.state.title}
                             onChange={this.handleInputChange}
                         />
-                        <label htmlFor="stepTitle" className={!_.isEmpty(this.state.title) && "active"}>Title*</label>
+                        <label htmlFor="stepTitle" className={_.isEmpty(this.state.title) ? undefined: "active"}>Title*</label>
                     </div>
                 </div>
                 <button className="btn waves-effect orange darken-4" name="action" type="submit">Add step</button>

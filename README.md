@@ -13,6 +13,8 @@
 [React Typescript](https://medium.com/@martin_hotell/react-typescript-and-defaultprops-dilemma-ca7f81c661c7)
 
 [React editable table with redux](https://codepen.io/Shamiul_Hoque/pen/OboVWQ)
+
+[React tags](https://github.com/prakhar1989/react-tags)
 ## Available Scripts
 
 In the project directory, you can run:

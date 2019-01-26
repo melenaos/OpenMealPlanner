@@ -13,6 +13,7 @@ import KitchenAllRecipes from "./pages/KitchenAllRecipes"
 import KitchenMyRecipes from "./pages/KitchenMyRecipes"
 import KitchenMealPlanning from "./pages/KitchenMealPlanning"
 import KitchenCreateRecipe from "./pages/KitchenCreateRecipe"
+import RecipeSharingDisclaimer from "./pages/RecipeSharingDisclaimer"
 
 
 
@@ -57,6 +58,10 @@ class App extends Component {
                         title="Create recipe"
                         path="/user/kitchen-library/create-recipe"
                         component={KitchenCreateRecipe}
+                    />
+                    <PropsRoute
+                        path="/recipe-sharing-disclaimer"
+                        component={RecipeSharingDisclaimer}
                     />
                 </Switch>
             </HashRouter>

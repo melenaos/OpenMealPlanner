@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import PropTypes from 'prop-types'
 import KitchenLibraryTemplate from "../layout/KitchenLibraryTemplate"
 import RecipeList from '../components/RecipeList'
-import KitchenLibraryActionbar from '../components/KitchenLibraryActionbar'
+import KitchenLibraryActionbar from '../layout/KitchenLibraryActionbar'
 
 class KitchenAllRecipes extends Component {
 

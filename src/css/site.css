@@ -17,6 +17,10 @@ nav .sidenav-trigger.btn.link{
     line-height:58px
 }
 
+.margin-right {
+    margin-right: 6px;
+}
+
 .without_ampm::-webkit-datetime-edit-ampm-field {
     display: none;
 }
@@ -29,3 +33,4 @@ input[type=time]::-webkit-clear-button {
     appearance: none;
     margin: -10px;
 }
+

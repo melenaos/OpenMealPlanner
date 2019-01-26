@@ -7,6 +7,11 @@ import KitchenLibraryTemplate from "../layout/KitchenLibraryTemplate"
 import EditRecipeInformation from '../components/EditRecipeInformation'
 import EditRecipeIngredients from '../components/EditRecipeIngredients'
 import EditRecipeSteps from '../components/EditRecipeSteps'
+import EditRecipeDetails from '../components/EditRecipeDetails'
+import EditRecipeStoraging from '../components/EditRecipeStoraging'
+import EditRecipeVisibility from '../components/EditRecipeVisibility'
+import EditRecipeActions from '../components/EditRecipeActions'
+//import EditRecipeDisclaimer from '../components/EditRecipeDisclaimer'
 
 
 class KitchenCreateRecipe extends Component {
@@ -17,12 +22,28 @@ class KitchenCreateRecipe extends Component {
 
         this.state = {
             recipe: {
+                // information
                 title: "",
+                servings:"1",
                 prep_time: "",
                 cook_time: "",
                 description: "",
+
                 ingredients: [],
-                steps: []
+
+                steps: [],
+
+                // details
+                cuisine:[],
+                main_ingredient: [],
+                meal: [],
+                dietary: [],
+
+                //storage
+                refrigerate: "",
+                freeze: "",
+
+                publicRecipe: "true"
             },
 
             ingredientError: "",
@@ -32,6 +53,8 @@ class KitchenCreateRecipe extends Component {
         this.handleIngredientsChanged = this.handleIngredientsChanged.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleStepsChanged = this.handleStepsChanged.bind(this)
+        this.handleAddTag = this.handleAddTag.bind(this)
+        this.handleDeleteTag = this.handleDeleteTag.bind(this)
     }
 
     handleIngredientsChanged(ingredients) {
@@ -59,10 +82,38 @@ class KitchenCreateRecipe extends Component {
         const value = target.type === 'checkbox' ? target.checked : target.value
         const name = target.getAttribute('data-name')
 
-        let obj = Object.assign({}, this.state)//, { [name]: value }
-        let parentObj =  obj.recipe
-        parentObj[name] = value
-        this.setState(parentObj)
+        this.setState(prevState => ({
+            ...prevState,
+            recipe: {
+                ...prevState.recipe,
+                [name]: value
+            }
+        }))
+    }
+
+    handleAddTag(tag, name) {
+        //const name = event.target.getAttribute('data-name')
+
+        this.setState(prevState => ({
+            ...prevState,
+            recipe: {
+                ...prevState.recipe,
+                [name]: [...prevState.recipe[name], tag]
+            }
+        }))
+
+    }
+
+    handleDeleteTag(i, name) {// event
+        //const name = event.target.getAttribute('data-name')
+
+        this.setState(prevState => ({
+            ...prevState,
+            recipe: {
+                ...prevState.recipe,
+                [name]: prevState.recipe[name].filter((_, index) => index !== i)
+            }
+        }))
     }
 
     render() {
@@ -70,9 +121,13 @@ class KitchenCreateRecipe extends Component {
             <KitchenLibraryTemplate fullwidth={true} {...this.props}>
                 <div className="row">
                     <div className="col s12">
-                        <EditRecipeInformation {...this.state} onInputChange={this.handleInputChange} />
+                        <EditRecipeInformation {...this.state.recipe} onInputChange={this.handleInputChange} />
                         <EditRecipeIngredients ingredients={this.state.ingredients} onIngredientsChange={this.handleIngredientsChanged} />
                         <EditRecipeSteps steps={this.state.steps} onStepsChange={this.handleStepsChanged} />
+                        <EditRecipeDetails {...this.state.recipe} onAdd={this.handleAddTag} onDelete={this.handleDeleteTag} />
+                        <EditRecipeStoraging {...this.state.recipe} onInputChange={this.handleInputChange} />
+                        <EditRecipeVisibility publicRecipe={this.state.recipe.publicRecipe} onInputChange={this.handleInputChange}/>
+                        <EditRecipeActions />
                     </div>
                 </div>
 

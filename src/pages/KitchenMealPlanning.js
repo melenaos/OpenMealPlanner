@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import PropTypes from 'prop-types'
 import KitchenLibraryTemplate from "../layout/KitchenLibraryTemplate"
 import RecipeList from '../components/RecipeList'
-import KitchenLibraryActionbar from '../components/KitchenLibraryActionbar'
+import KitchenLibraryActionbar from '../layout/KitchenLibraryActionbar'
 
 class KitchenMealPlanning extends Component {
 

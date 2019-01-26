@@ -37,6 +37,23 @@
 }
 
 
+.kitchen-action-bar {
+    float: left;
+    margin-top: -67px;
+    margin-left: -6px;
+    width:180px;
+}
+
+@media only screen and (max-width : 580px) {
+    .kitchen-action-bar {
+        float: inherit;
+        margin-top: inherit;
+        margin-left: inherit;
+        width:inherit;
+        text-align:center
+    }
+}
+
 /*
 .sidenav form {
     position: relative;

@@ -77,7 +77,7 @@ class EditRecipeIngredients extends Component {
         return (
             <div className="row">
                 <h2 className="kitchen-lib-title">Ingredients
-                    {this.state.ingredients.length > 0 && 
+                    {this.state.ingredients.length > 0 &&
                         <sup>({this.state.ingredients.length})</sup>}
                 </h2>
                 {this.state.ingredients.length > 0 &&
@@ -215,7 +215,7 @@ class RecipeIngredientForm extends Component {
                             value={this.state.name}
                             onChange={this.handleInputChange}
                         />
-                        <label htmlFor="ingredientName" className={!_.isEmpty(this.state.name) && "active"}>Name*</label>
+                        <label htmlFor="ingredientName" className={_.isEmpty(this.state.name) ? undefined : "active"}>Name*</label>
                     </div>
                     <div className="input-field ingr-qty">
                         <input
@@ -224,7 +224,7 @@ class RecipeIngredientForm extends Component {
                             value={this.state.quantity}
                             onChange={this.handleInputChange}
                         />
-                        <label htmlFor="ingredientQuantity" className={!_.isEmpty(this.state.quantity) && "active"}>Qty*</label>
+                        <label htmlFor="ingredientQuantity" className={_.isEmpty(this.state.quantity) ? undefined : "active"}>Qty*</label>
                     </div>
                     <div className="input-field ingr-unit">
                         <select

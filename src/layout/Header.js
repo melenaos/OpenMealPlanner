@@ -7,7 +7,7 @@ const Header = ({ user, kitchenLibraryOpen }) =>
     <div className="navbar-fixed">
         <nav className="white  grey-text text-darken-1" role="navigation">
             <div className="nav-wrapper">
-                <a href="#logo" className="brand-logo center">Logo</a>
+                <Link to="/" className="brand-logo center"><img src="./logo.png" alt="logo" style={{ verticalAlign: "middle", marginBottom: "10px", height: "35px" }} /></Link>
                 <ul id="nav-mobile" className="left">
                     <li>{user === null ?
                         <Link to="/login" className="btn link grey-text text-darken-1">Log-in</Link> :
